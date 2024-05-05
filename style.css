@@ -25,11 +25,12 @@ body {
   color: black;
   background-color: black;
   padding: 20px;
+  max-width: 100vw;
 }
 
 main {
   display: flex;
-  max-width: 97vw;
+  max-width: 98vw;
   max-height: 100vh;
   height: 95%;
   border-radius: 15px;
@@ -351,12 +352,13 @@ hr {
 @media only screen and (max-width: 850px) {
   .About {
     display: block;
+    padding: 0px 5% 0px 5% ;
   }
 
   .externalLinks {
     margin-right: 0px;
     max-width: 100vw;
-    padding: 0% 3% 0% 3%;
+    padding: 0% 0% 0% 0%;
     margin: 10% 0 5% 0px;
 
     .location,
@@ -425,7 +427,7 @@ hr {
   }
   main {
     display: inline-block;
-    max-width: 95vw;
+    max-width: 93vw;
   }
   .skill_head {
     margin: 0px 0px 5% 5%;
@@ -445,5 +447,144 @@ hr {
         font-size: 14px;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .About {
+    display: block;
+    padding: 0px 5% 0px 5% ;
+  }
+
+  .externalLinks {
+    margin-right: 0px;
+    max-width: 100vw;
+    padding: 0% 0% 0% 0%;
+    margin: 10% 0 5% 0px;
+
+    .location,
+    .email,
+    .whatsapp,
+    .CV {
+      max-width: 100vw;
+    }
+  }
+  hr {
+    max-width: 90vw;
+  }
+  .profileBackground {
+    max-height: 25vh;
+    height: 19vh;
+    img {
+      width: 100vw;
+    }
+  }
+  .profile {
+    display: block;
+    justify-content: start;
+    width: 100vw;
+  }
+  .profileImage {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 130px;
+    height: 130px;
+  }
+  .profileCSS {
+    width: 90vw;
+    h1 {
+      font-size: 1.6rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  .Contact {
+    max-width: 90vw;
+    display: flex;
+    justify-content: start;
+    margin-left: 0%;
+    align-items: start;
+    padding: 5% 3%;
+  }
+  .Contact_Button_email {
+    max-width: 50vw;
+    width: 50vw;
+    word-spacing: 0px;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+    img {
+      height: 40px;
+    }
+  }
+  .short_bio{
+    padding: 2% 5% 5% 5%;
+  }
+  .resume{
+    font-size: 12px;
+  }
+  .Contact_Button_whatsapp {
+    max-width: 50vw;
+    width: 50vw;
+    word-spacing: 0px;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+    img {
+      height: 40px;
+    }
+  }
+  main {
+    display: inline-block;
+    max-width: 93vw;
+  }
+  .skill_head {
+    margin: 0px 0px 5% 5%;
+  }
+  .skills {
+    margin: 0%;
+    padding: 0% 5% 0 5%;
+    gap: 2rem;
+    .card {
+      justify-content: space-between;
+      max-width: 100vw;
+      width: 85vw;
+      img {
+        max-height: 10vh;
+      }
+      h3 {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  body{
+    padding: 5%;
+  }
+  .profileBackground{
+    max-width: 100vw;
+    width: 100vw;
+    height: 18vh;
+    img{
+      width: 100vw;
+    }
+  }
+  main{
+    max-width: 90vw;
+  }
+  .resume{
+    padding: 8% 0px;
+  }
+  .skills{
+    max-width: 100vw;
+    padding: 0% 2% 0 2%;
+
+  }
+  .card{
+    padding: 0;
+    margin: 0 auto;
   }
 }
