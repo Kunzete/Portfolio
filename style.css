@@ -586,5 +586,52 @@ hr {
   .card{
     padding: 0;
     margin: 0 auto;
+  } 
+}
+
+@media only screen and (max-width: 360px){
+
+  .profileImage{
+    height: 100px;
+    width: 100px;
+  }
+
+  .profileCSS{
+    h1{
+      font-size: 18px;
+    }
+    h2{
+      font-size: 14px;
+    }
+  }
+  .short_bio{
+    font-size: 13px;
+  }
+  .resume{
+    margin: 0;
+    padding: 1% 0 10% 0;
+  }
+  .me{
+    h1{
+      font-size: 18px;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+  .location,
+  .CV,
+  .email,
+  .whatsapp{
+    width: 82vw;
+  }
+  .skills{
+    max-width: 100vw;
+    padding: 0% 0% 0% 0%;
+
+  }
+  .card{
+    padding: 0;
+    margin: 0 3%;
   }
 }
