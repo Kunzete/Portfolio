@@ -52,6 +52,9 @@ main {
 
 .profileBackground {
   height: 20vh;
+  img{
+    width: 83vw;
+  }
 }
 
 aside {
