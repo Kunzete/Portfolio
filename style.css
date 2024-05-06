@@ -52,7 +52,7 @@ main {
 
 .profileBackground {
   height: 20vh;
-  img{
+  img {
     width: 83vw;
   }
 }
@@ -75,6 +75,20 @@ aside {
   align-items: start;
 }
 
+.logo{
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-duration:20s;
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(1000deg);
+  }
+}
 .aside_first ul {
   margin-top: 20%;
   display: flex;
@@ -167,6 +181,27 @@ aside {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all .3s ease-in-out;
+}
+
+.text-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgb(149, 31, 31);
+  animation: typing 3s steps(20) forwards, blink-caret 0.5s infinite alternate;
+  color: rgb(149, 31, 31);
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 65% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(149, 31, 31) }
+}
+
+.profileImage img:hover{
+  transform: scale(1.2);
 }
 
 .profileName {
@@ -315,7 +350,10 @@ hr {
     display: none;
   }
   .profileBackground {
-    height: 22vh;
+    img{
+      height: 25vh;
+      width: 95vw;
+    }
   }
   .profileImage {
     width: 150px;
@@ -355,7 +393,7 @@ hr {
 @media only screen and (max-width: 850px) {
   .About {
     display: block;
-    padding: 0px 5% 0px 5% ;
+    padding: 0px 5% 0px 5%;
   }
 
   .externalLinks {
@@ -379,6 +417,7 @@ hr {
     height: 18vh;
     img {
       height: 22vh;
+      width: 95vw;
     }
   }
   .profile {
@@ -456,7 +495,7 @@ hr {
 @media only screen and (max-width: 600px) {
   .About {
     display: block;
-    padding: 0px 5% 0px 5% ;
+    padding: 0px 5% 0px 5%;
   }
 
   .externalLinks {
@@ -477,7 +516,7 @@ hr {
   }
   .profileBackground {
     max-height: 25vh;
-    height: 19vh;
+    height: 22vh;
     img {
       width: 100vw;
     }
@@ -521,10 +560,10 @@ hr {
       height: 40px;
     }
   }
-  .short_bio{
+  .short_bio {
     padding: 2% 5% 5% 5%;
   }
-  .resume{
+  .resume {
     font-size: 12px;
   }
   .Contact_Button_whatsapp {
@@ -564,85 +603,82 @@ hr {
 }
 
 @media only screen and (max-width: 425px) {
-  body{
+  body {
     padding: 5%;
   }
-  .profileBackground{
+  .profileBackground {
     max-width: 100vw;
     width: 100vw;
     height: 18vh;
-    img{
+    img {
       width: 100vw;
     }
   }
-  main{
+  main {
     max-width: 90vw;
   }
-  .resume{
+  .resume {
     padding: 8% 0px;
   }
-  .skills{
+  .skills {
     max-width: 100vw;
     padding: 0% 2% 0 2%;
-
   }
-  .card{
+  .card {
     padding: 0;
     margin: 0 auto;
-  } 
+  }
 }
 
-@media only screen and (max-width: 360px){
-
-  .profileBackground{
-    img{
+@media only screen and (max-width: 360px) {
+  .profileBackground {
+    img {
       width: 90vw;
     }
   }
-  .profileImage{
+  .profileImage {
     height: 100px;
     width: 100px;
   }
 
-  .profileCSS{
-    h1{
+  .profileCSS {
+    h1 {
       font-size: 18px;
     }
-    h2{
+    h2 {
       font-size: 14px;
     }
   }
-  .short_bio{
+  .short_bio {
     font-size: 13px;
   }
-  .resume{
+  .resume {
     margin: 0;
     padding: 1% 0 10% 0;
   }
-  .me{
-    h1{
+  .me {
+    h1 {
       font-size: 18px;
     }
-    p{
+    p {
       font-size: 14px;
     }
   }
   .location,
   .CV,
   .email,
-  .whatsapp{
+  .whatsapp {
     width: 82vw;
   }
-  .skills{
+  .skills {
     max-width: 100vw;
     padding: 0% 0% 0% 0%;
-
   }
-  .card{
+  .card {
     padding: 0;
     margin: 0 3%;
   }
-  .skill_head{
+  .skill_head {
     font-size: 18px;
   }
 }
