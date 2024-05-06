@@ -60,7 +60,7 @@ main {
 aside {
   width: 50%;
   max-width: 250px; /* Optional: Set a maximum width */
-  min-height: 220vh;
+  min-height: 250vh;
   border-right: 1px rgba(128, 128, 128, 0.554) solid;
   padding: 20px;
   h1 {
