@@ -631,6 +631,10 @@ hr {
 }
 
 @media only screen and (max-width: 360px) {
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 70% }
+  }
   .profileBackground {
     img {
       width: 90vw;
