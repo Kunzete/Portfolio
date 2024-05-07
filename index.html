@@ -3,45 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#000000" />
     <title>Mohtashim Khan | Portfolio</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const words = ["Web Developer", "PHP Developer"];
-    let index = 0;
-    let letterIndex = 0;
-    let currentWord = words[index];
-    let textContainer = document.getElementById("textContainer");
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get all anchor tags
+      const anchors = document.querySelectorAll("a[href^='#']");
 
-    function typeText() {
-      textContainer.textContent = currentWord.slice(0, ++letterIndex);
-      if (letterIndex === currentWord.length) {
-        setTimeout(() => {
-          eraseText();
-          textContainer.classList.remove('text-animation');
-        }, 6000);
-      } else {
-        requestAnimationFrame(typeText);
+      // Add click event listeners to anchors
+      anchors.forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault(); // Prevent default anchor behavior
+
+          const targetId = this.getAttribute("href").substring(1); // Get target div ID
+          const targetDiv = document.getElementById(targetId); // Get target div
+
+          if (targetDiv) {
+            targetDiv.scrollIntoView({ behavior: "smooth" }); // Scroll to target div smoothly
+          }
+        });
+      });
+      const words = ["Web Developer", "PHP Developer"];
+      let index = 0;
+      let letterIndex = 0;
+      let currentWord = words[index];
+      let textContainer = document.getElementById("textContainer");
+
+      function typeText() {
+        textContainer.textContent = currentWord.slice(0, ++letterIndex);
+        if (letterIndex === currentWord.length) {
+          setTimeout(() => {
+            eraseText();
+            textContainer.classList.remove("text-animation");
+          }, 6000);
+        } else {
+          requestAnimationFrame(typeText);
+        }
       }
-    }
 
-    function eraseText() {
-      textContainer.textContent = currentWord.slice(0, --letterIndex);
-      if (letterIndex === 0) {
-        textContainer.classList.add('text-animation');
-        index = (index + 1) % words.length;
-        currentWord = words[index];
-        setTimeout(typeText, 100);
-      } else {
-        requestAnimationFrame(eraseText);
+      function eraseText() {
+        textContainer.textContent = currentWord.slice(0, --letterIndex);
+        if (letterIndex === 0) {
+          textContainer.classList.add("text-animation");
+          index = (index + 1) % words.length;
+          currentWord = words[index];
+          setTimeout(typeText, 100);
+        } else {
+          requestAnimationFrame(eraseText);
+        }
       }
-    }
 
-    typeText();
-  });
+      typeText();
+    });
   </script>
   <body>
     <main>
@@ -52,9 +68,9 @@
             <h1 style="margin-left: 5px">Portfolio</h1>
           </div>
           <ul>
-            <li><a href="#">About me</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Projects</a></li>
+            <li><a href="#about">About me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Projects</a></li>
           </ul>
         </div>
         <div class="aside_last">
@@ -126,12 +142,15 @@
 
         <hr />
         <br />
-        <h1 class="resume" style="text-align: center; font-size: 30px; margin: 1% 0px">
+        <h1
+          class="resume"
+          style="text-align: center; font-size: 30px; margin: 1% 0px"
+        >
           Resume
         </h1>
 
         <!-- About Start -->
-        <div class="About">
+        <div class="About" id="about">
           <div class="me">
             <h1>About me</h1>
             <br />
@@ -208,7 +227,7 @@
         </div>
         <br />
         <h1 class="skill_head">Skills</h1>
-        <div class="skills">
+        <div class="skills" id="skills">
           <div class="card">
             <div class="type">
               <img src="html.svg" alt="" />
@@ -255,7 +274,13 @@
           </div>
           <div class="card">
             <div class="type">
-              <img src="php.png" alt="" style="margin: 0px 6%;" height="55px" width="55px"/>
+              <img
+                src="php.png"
+                alt=""
+                style="margin: 0px 6%"
+                height="55px"
+                width="55px"
+              />
               <h3>PHP</h3>
             </div>
             <br />
@@ -270,7 +295,7 @@
 
           <div class="card">
             <div class="type">
-              <img src="sql.svg" alt="" width="60px"/>
+              <img src="sql.svg" alt="" width="60px" />
               <h3>MySQL</h3>
             </div>
             <br />
@@ -285,7 +310,7 @@
 
           <div class="card">
             <div class="type">
-              <img src="figma.svg" alt="" width="50px"/>
+              <img src="figma.svg" alt="" width="50px" />
               <h3>Figma</h3>
             </div>
             <br />
@@ -299,77 +324,148 @@
           </div>
         </div>
 
-        <div class="project">
+        <div class="project" id="project">
           <h1 class="proj_head">My Projects</h1>
           <br />
 
-        <div class="skills">
-          <div class="card">
-            <div class="type">
-              <a href="https://tinyurl.com/clarins-cosmetics" target="_blank"><img src="js.svg" alt="" /></a>
-            </div>
-            <br />
-            <div class="card-body">
-              <div class="container">
-                <div class="description">
-                  <h4 style="margin-left: 5%; margin-bottom: 2%;">Clarin's Cosmetic's</h4>
-                  <p style="font-size: 12px; text-align: start; margin-left: 5%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officiis culpa fuga adipisci repudiandae amet mollitia officia sed qui quasi!</p>
+          <div class="skills">
+            <div class="card">
+              <div class="type">
+                <a href="https://tinyurl.com/clarins-cosmetics" target="_blank"
+                  ><img src="js.svg" alt=""
+                /></a>
+              </div>
+              <br />
+              <div class="card-body">
+                <div class="container">
+                  <div class="description">
+                    <h4 style="margin-left: 5%; margin-bottom: 2%">
+                      Clarin's Cosmetic's
+                    </h4>
+                    <p
+                      style="
+                        font-size: 12px;
+                        text-align: start;
+                        margin-left: 5%;
+                      "
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quibusdam officiis culpa fuga adipisci repudiandae amet
+                      mollitia officia sed qui quasi!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="type">
-              <a href="https://tinyurl.com/safaliciousplayer"><img src="js.svg" alt="" /></a>
-            </div>
-            <br />
-            <div class="card-body">
-              <div class="container">
-                <div class="description">
-                  <h4 style="margin-left: 5%; margin-bottom: 2%;">Music player</h4>
-                  <p style="font-size: 12px; text-align: start; margin-left: 5%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officiis culpa fuga adipisci repudiandae amet mollitia officia sed qui quasi!</p>
+            <div class="card">
+              <div class="type">
+                <a href="https://tinyurl.com/safaliciousplayer"
+                  ><img src="js.svg" alt=""
+                /></a>
+              </div>
+              <br />
+              <div class="card-body">
+                <div class="container">
+                  <div class="description">
+                    <h4 style="margin-left: 5%; margin-bottom: 2%">
+                      Music player
+                    </h4>
+                    <p
+                      style="
+                        font-size: 12px;
+                        text-align: start;
+                        margin-left: 5%;
+                      "
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quibusdam officiis culpa fuga adipisci repudiandae amet
+                      mollitia officia sed qui quasi!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="type">
-              <a href="https://swiiftshiip.000webhostapp.com/" target="_blank"><img src="js.svg" alt="" /></a>
-            </div>
-            <br />
-            <div class="card-body">
-              <div class="container">
-                <div class="description">
-                  <h4 style="margin-left: 5%; margin-bottom: 2%;">Courier Management System</h4>
-                  <p style="font-size: 12px; text-align: start; margin-left: 5%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officiis culpa fuga adipisci repudiandae amet mollitia officia sed qui quasi!</p>
+            <div class="card">
+              <div class="type">
+                <a href="https://swiiftshiip.000webhostapp.com/" target="_blank"
+                  ><img src="js.svg" alt=""
+                /></a>
+              </div>
+              <br />
+              <div class="card-body">
+                <div class="container">
+                  <div class="description">
+                    <h4 style="margin-left: 5%; margin-bottom: 2%">
+                      Courier Management System
+                    </h4>
+                    <p
+                      style="
+                        font-size: 12px;
+                        text-align: start;
+                        margin-left: 5%;
+                      "
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quibusdam officiis culpa fuga adipisci repudiandae amet
+                      mollitia officia sed qui quasi!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="type">
-              <a href="https://tinyurl.com/reelicious" target="_blank"><img src="js.svg" alt="" /></a>
-            </div>
-            <br />
-            <div class="card-body">
-              <div class="container">
-                <div class="description">
-                  <h4 style="margin-left: 5%; margin-bottom: 2%;">Reels Website</h4>
-                  <p style="font-size: 12px; text-align: start; margin-left: 5%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officiis culpa fuga adipisci repudiandae amet mollitia officia sed qui quasi!</p>
+            <div class="card">
+              <div class="type">
+                <a href="https://tinyurl.com/reelicious" target="_blank"
+                  ><img src="js.svg" alt=""
+                /></a>
+              </div>
+              <br />
+              <div class="card-body">
+                <div class="container">
+                  <div class="description">
+                    <h4 style="margin-left: 5%; margin-bottom: 2%">
+                      Reels Website
+                    </h4>
+                    <p
+                      style="
+                        font-size: 12px;
+                        text-align: start;
+                        margin-left: 5%;
+                      "
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quibusdam officiis culpa fuga adipisci repudiandae amet
+                      mollitia officia sed qui quasi!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="type">
-              <a href="https://tinyurl.com/KunCal124"><img src="js.svg" alt="" /></a>
-            </div>
-            <br />
-            <div class="card-body">
-              <div class="container">
-                <div class="description">
-                  <h4 style="margin-left: 5%; margin-bottom: 2%;">Calculator</h4>
-                  <p style="font-size: 12px; text-align: start; margin-left: 5%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam officiis culpa fuga adipisci repudiandae amet mollitia officia sed qui quasi!</p>
+            <div class="card">
+              <div class="type">
+                <a href="https://tinyurl.com/KunCal124"
+                  ><img src="js.svg" alt=""
+                /></a>
+              </div>
+              <br />
+              <div class="card-body">
+                <div class="container">
+                  <div class="description">
+                    <h4 style="margin-left: 5%; margin-bottom: 2%">
+                      Calculator
+                    </h4>
+                    <p
+                      style="
+                        font-size: 12px;
+                        text-align: start;
+                        margin-left: 5%;
+                      "
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quibusdam officiis culpa fuga adipisci repudiandae amet
+                      mollitia officia sed qui quasi!
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -379,16 +475,15 @@
     </main>
     <script>
       //pfp
-      let image = document.getElementById("bgPFP")
+      let image = document.getElementById("bgPFP");
 
-      image.addEventListener("mouseenter",()=>{
-        image.src = 'standard.gif'
-      })
+      image.addEventListener("mouseenter", () => {
+        image.src = "standard.gif";
+      });
 
-      image.addEventListener("mouseleave",()=>{
-        image.src = 'static.png'
-      })
-
+      image.addEventListener("mouseleave", () => {
+        image.src = "static.png";
+      });
 
       //First Progress Bar
       let circularSpinner1 = document.querySelector(".spinner"),
@@ -402,7 +497,9 @@
         progressStartValue1++;
 
         progress1.textContent = `${progressStartValue1}%`;
-        circularSpinner1.style.background = `conic-gradient(#0080ff ${progressStartValue1 * 3.6}deg,#e2e2e2 0deg)`
+        circularSpinner1.style.background = `conic-gradient(#0080ff ${
+          progressStartValue1 * 3.6
+        }deg,#e2e2e2 0deg)`;
         if (progressStartValue1 == progressEndValue1) {
           clearInterval(ProgressBar1);
         }
@@ -412,7 +509,6 @@
       let circularSpinner2 = document.querySelector(".spinner2"),
         progress2 = document.querySelector(".spinner-value2");
 
-
       let progressStartValue2 = 0,
         progressEndValue2 = 90;
 
@@ -420,7 +516,9 @@
         progressStartValue2++;
 
         progress2.textContent = `${progressStartValue2}%`;
-        circularSpinner2.style.background = `conic-gradient(#0080ff ${progressStartValue2 * 3.6}deg,#e2e2e2 0deg)`
+        circularSpinner2.style.background = `conic-gradient(#0080ff ${
+          progressStartValue2 * 3.6
+        }deg,#e2e2e2 0deg)`;
         if (progressStartValue2 == progressEndValue2) {
           clearInterval(secondBar);
         }
@@ -437,13 +535,14 @@
         progressStartValue3++;
 
         progress3.textContent = `${progressStartValue3}%`;
-        circularSpinner3.style.background = `conic-gradient(#0080ff ${progressStartValue3 * 3.6}deg,#e2e2e2 0deg)`
+        circularSpinner3.style.background = `conic-gradient(#0080ff ${
+          progressStartValue3 * 3.6
+        }deg,#e2e2e2 0deg)`;
         if (progressStartValue3 == progressEndValue3) {
           clearInterval(thirdBar);
         }
       }, speed);
 
-      
       //Fourth Progress Bar
       let circularSpinner4 = document.querySelector(".spinner4"),
         progress4 = document.querySelector(".spinner-value4");
@@ -455,13 +554,14 @@
         progressStartValue4++;
 
         progress4.textContent = `${progressStartValue4}%`;
-        circularSpinner4.style.background = `conic-gradient(#0080ff ${progressStartValue4 * 3.6}deg,#e2e2e2 0deg)`
+        circularSpinner4.style.background = `conic-gradient(#0080ff ${
+          progressStartValue4 * 3.6
+        }deg,#e2e2e2 0deg)`;
         if (progressStartValue4 == progressEndValue4) {
           clearInterval(FourthBar);
         }
       }, speed);
 
-      
       //Fifth Progress Bar
       let circularSpinner5 = document.querySelector(".spinner5"),
         progress5 = document.querySelector(".spinner-value5");
@@ -473,13 +573,14 @@
         progressStartValue5++;
 
         progress5.textContent = `${progressStartValue5}%`;
-        circularSpinner5.style.background = `conic-gradient(#0080ff ${progressStartValue5 * 3.6}deg,#e2e2e2 0deg)`
+        circularSpinner5.style.background = `conic-gradient(#0080ff ${
+          progressStartValue5 * 3.6
+        }deg,#e2e2e2 0deg)`;
         if (progressStartValue5 == progressEndValue5) {
           clearInterval(fifthbar);
         }
       }, speed);
 
-      
       //Fifth Progress Bar
       let circularSpinner6 = document.querySelector(".spinner6"),
         progress6 = document.querySelector(".spinner-value6");
@@ -491,7 +592,9 @@
         progressStartValue6++;
 
         progress6.textContent = `${progressStartValue6}%`;
-        circularSpinner6.style.background = `conic-gradient(#0080ff ${progressStartValue6 * 3.6}deg,#e2e2e2 0deg)`
+        circularSpinner6.style.background = `conic-gradient(#0080ff ${
+          progressStartValue6 * 3.6
+        }deg,#e2e2e2 0deg)`;
         if (progressStartValue6 == progressEndValue6) {
           clearInterval(sixth);
         }
