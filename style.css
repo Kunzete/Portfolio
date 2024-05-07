@@ -291,6 +291,10 @@ hr {
   .type {
     display: flex;
     align-items: center;
+    img{
+      aspect-ratio: 2/2;
+      object-fit: cover;
+    }
   }
 
   .card {
@@ -303,6 +307,7 @@ hr {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     padding: 2%;
     border-radius: 15px;
+
 
     .spinner,
     .spinner2,
