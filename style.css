@@ -354,6 +354,28 @@ hr {
   margin: 2% 0% 0% 3%;
 }
 
+.type2{
+  max-width: 50vw;
+  max-height: 50vh;
+  width: 20vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: grayscale(100);
+    scale: 0.5;
+    transition: all .3s linear;
+  }
+  img:hover{
+    transform: scale(2);
+    filter: grayscale(0);
+  }
+}
+
 
 @media only screen and (max-width: 1100px) {
   aside {
